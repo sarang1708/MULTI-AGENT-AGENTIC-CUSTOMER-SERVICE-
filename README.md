@@ -1,141 +1,159 @@
-# 🤖 Multi-Agent Agentic AI Customer Service System
+# 🤖 Agentic AI Customer Support Bot
 
-![AI](https://img.shields.io/badge/AI-Agentic%20AI-blue)
-![Python](https://img.shields.io/badge/Python-3.x-green)
-![Status](https://img.shields.io/badge/Status-Active-success)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+## 📌 Project Overview
+This project is an **Autonomous Agentic AI Customer Support System** built using machine learning and real-world datasets.  
+It simulates a real e-commerce support assistant capable of understanding queries, retrieving relevant information, tracking orders, and escalating issues when required.
 
----
-
-## 📌 Overview
-A **Multi-Agent Agentic AI system** that automates customer service using **LLM-driven workflows**.  
-The system intelligently routes user queries to specialized AI agents, enabling scalable and efficient query resolution.
-
-This project demonstrates real-world implementation of:
-- Agentic AI systems  
-- Multi-agent collaboration  
-- Prompt engineering & workflow automation  
+Unlike basic chatbots, this system follows an **Agentic AI architecture** where multiple intelligent components collaborate to solve user queries.
 
 ---
 
 ## 🚀 Key Features
-- 🧠 **Multi-Agent Architecture** – Specialized agents for different tasks  
-- 🔄 **Dynamic Task Routing** – Intelligent query handling  
-- 💬 **LLM Integration** – Natural language understanding & generation  
-- ⚡ **Automation Pipeline** – End-to-end query processing  
-- 🔗 **API Ready** – Easy integration with external systems  
-- 📈 **Scalable Design** – Extend with new agents  
+
+- ✅ Intent Classification using TF-IDF + Logistic Regression  
+- ✅ Order Tracking using real dataset (Tool Agent)  
+- ✅ Smart Search (by Order ID, Name, Product, City)  
+- ✅ Retrieval-Based Response Generation  
+- ✅ Confidence-Based Escalation System  
+- ✅ Ticket Generation for unresolved queries  
+- ✅ Clean and structured terminal UI  
 
 ---
 
-## 🏗️ System Architecture
-```
-User Query
-   ↓
-Intent Detection Agent
-   ↓
-Routing Agent
-   ↓
-Specialized Agents
-   ├── FAQ Agent
-   ├── Support Agent
-   ├── Complaint Handler
-   ↓
-Response Generator Agent
-   ↓
-Final Response
-```
+## 🧠 Agentic AI Architecture
 
----
+This project implements multiple agents working together:
 
-## 🛠️ Tech Stack
-- **Languages:** Python, JavaScript  
-- **AI/LLM:** OpenAI API, Prompt Engineering  
-- **Automation:** n8n (workflow orchestration)  
-- **Backend:** REST APIs  
-- **Concepts:**  
-  - Agentic AI  
-  - Multi-Agent Systems  
-  - LLM Integration  
+| Agent | Function |
+|------|--------|
+| 🧠 Intent Agent | Detects user intent (billing, refund, etc.) |
+| 🔍 Retrieval Agent | Finds relevant records from dataset |
+| 🛠 Tool Agent | Handles order tracking and structured queries |
+| ⚠️ Escalation Agent | Creates ticket when confidence is low |
+| 💬 Response Agent | Generates formatted responses |
 
 ---
 
 ## 📂 Project Structure
-```
-agentic-ai/
-│── agents/            # Individual AI agents
-│── utils/             # Utility functions
-│── main.py            # Application entry point
-│── requirements.txt   # Dependencies
-│── .env               # API keys
-```
-
----
+agenticai/
+│
+├── agent_ai.py # Main chatbot (entry point)
+├── train_model.py # Model training script
+├── model.pkl # Trained ML model
+├── vectorizer.pkl # TF-IDF vectorizer
+│
+├── data/
+│ ├── customer_support_tickets.csv
+│ └── orders.csv
+│
+├── config.json
+├── knowledge.json
+├── feedback.json
+├── escalations.json
+│
+├── requirements.txt
+└── README.mdagenticai/
+│
+├── agent_ai.py # Main chatbot (entry point)
+├── train_model.py # Model training script
+├── model.pkl # Trained ML model
+├── vectorizer.pkl # TF-IDF vectorizer
+│
+├── data/
+│ ├── customer_support_tickets.csv
+│ └── orders.csv
+│
+├── config.json
+├── knowledge.json
+├── feedback.json
+├── escalations.json
+│
+├── requirements.txt
+└── README.md                                                                                          ---
 
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Clone Repository
 ```bash
 git clone https://github.com/your-username/agentic-ai.git
-cd agentic-ai
-```
+cd agentic-ai                                                                                                       pip install -r requirements.txt                                                                                               python agent_ai.py                                                                             💡 Example Usage
+🔹 Input:
 
-### 2️⃣ Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+refund status ORD1062
+🔹 Output:
 
-### 3️⃣ Configure Environment
-Create `.env` file:
-```
-OPENAI_API_KEY=your_api_key_here
-```
+Bot: ✅ Order ID detected!
 
----
+📦 Order Details:
 
-## ▶️ Run Application
-```bash
-python main.py
-```
+👤 Customer: Sneha Kapoor
+📌 Product: Running Shoes (Fashion)
+💳 Payment: Net Banking
+💰 Amount: ₹18091
 
----
+🚚 Status: Refund Initiated
+📅 Delivery: Not Available
+💸 Refund: Not Applicable
+📍 City: Mumbai
+🔹 Input:
 
-## 💡 Example
-**Input:**
-```
-I want to return my product
-```
+arjun mehta
+🔹 Output:
 
-**Output:**
-```
-Your return request has been initiated. Please follow the instructions sent to your email.
-```
+Bot: 🔍 Matching order found!
 
----
+📦 Order Found:
 
-## 📊 Use Cases
-- Customer Support Automation  
-- E-commerce Query Handling  
-- Helpdesk AI Systems  
-- AI Chat Assistants  
+👤 Customer: Arjun Mehta
+📌 Product: Mobile Phone (Electronics)
+...
+📊 Use Cases
+Customer Support Automation
 
----
+E-commerce Order Tracking
 
-## 📈 Future Enhancements
-- ☁️ Cloud deployment (AWS/GCP)  
-- 🎙️ Voice assistant integration  
+AI Helpdesk Systems
 
----
+Query Classification & Routing
 
-## 🎯 Why This Project Matters
-This project showcases **practical implementation of Agentic AI**, a rapidly growing field in AI engineering, and demonstrates the ability to build **scalable, production-like AI systems**.
+Support Ticket Automation
 
----
+📈 Future Enhancements
+🌐 Web-based UI (Streamlit / React)
 
-## 🤝 Contributing
-Contributions are welcome! Feel free to fork and submit pull requests.
+☁️ Cloud Deployment (AWS / GCP)
 
----
+📊 Power BI Dashboard Integration
 
+🎙️ Voice Assistant Integration
+
+🤖 LLM Integration (Hybrid AI system)
+
+🎯 Why This Project Matters
+This project demonstrates:
+
+Real-world application of Agentic AI systems
+
+Integration of ML + Data + Automation
+
+Ability to build scalable, production-like AI solutions
+
+It is highly relevant for roles like:
+
+Data Analyst
+
+AI/ML Engineer
+
+Backend Developer
+
+Product Engineer
+
+👨‍💻 Author
+SARANG RAMPAL
+B.Tech CSE | AI & Data Enthusiast
+
+🤝 Contributing
+Contributions are welcome!
+Feel free to fork the repository and submit pull requests
 
 
